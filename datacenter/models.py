@@ -73,7 +73,7 @@ class Lesson(models.Model):
     date = models.DateField('дата', db_index=True)
 
     def __str__(self):
-        return f'{self.subject.title} {self.year_of_study}{self.group_letter}'
+        return f'{self.subject.title} - {self.teacher.full_name} - {self.year_of_study}{self.group_letter}'
 
 
 class Mark(models.Model):
