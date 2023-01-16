@@ -1,7 +1,10 @@
+import random
+
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 
 from datacenter.models import Mark, Chastisement, Commendation, Schoolkid, Subject, Lesson
 
+PRAISES_LIST = ["Хвалю!"]
 
 def get_schoolkid_by_name(name):
     try:
@@ -29,4 +32,4 @@ def create_commendation(schoolkid_name, subject_name):
     lesson = Lesson.objects.filter(group_letter=schoolkid.group_letter, year_of_study=schoolkid.year_of_study,
                                    subject=subject).order_by('date').first()
     commendation = Commendation.objects.create(teacher=lesson.teacher, subject=lesson.subject, schoolkid=schoolkid,
-                                               created=lesson.date, text="Хвалю!")
+                                               created=lesson.date, text=random.choice(PRAISES_LIST))
