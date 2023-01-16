@@ -30,4 +30,3 @@ def create_commendation(schoolkid_name, subject_name):
                                    subject=subject).order_by('date').first()
     commendation = Commendation.objects.create(teacher=lesson.teacher, subject=lesson.subject, schoolkid=schoolkid,
                                                created=lesson.date, text="Хвалю!")
-    commendation.save()
