@@ -25,7 +25,7 @@ def remove_chastisements(schoolkid_name):
 
 def create_commendation(schoolkid_name, subject_name):
     schoolkid = get_schoolkid_by_name(schoolkid_name)
-    subject = Subject.objects.filter(title=subject_name, year_of_study=schoolkid.year_of_study)[0]
+    subject = Subject.objects.filter(title=subject_name, year_of_study=schoolkid.year_of_study).first()
     lesson = Lesson.objects.filter(group_letter=schoolkid.group_letter, year_of_study=schoolkid.year_of_study,
                                    subject=subject).order_by('date').first()
     commendation = Commendation.objects.create(teacher=lesson.teacher, subject=lesson.subject, schoolkid=schoolkid,
