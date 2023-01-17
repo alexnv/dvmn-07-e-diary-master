@@ -4,7 +4,7 @@ from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 
 from datacenter.models import Mark, Chastisement, Commendation, Schoolkid, Subject, Lesson
 
-PRAISES_LIST = ["Хвалю!"]
+PRAISES_LIST = ["Хвалю!", "Молодец"]
 
 def get_schoolkid_by_name(name):
     try:
