@@ -11,9 +11,9 @@ def get_schoolkid_by_name(name):
     try:
         schoolkid = Schoolkid.objects.get(full_name__contains=name)
         return schoolkid
-    except Model.ObjectDoesNotExist:
+    except Schoolkid.ObjectDoesNotExist:
         print(f"Не найдено ученика по имени {name}")
-    except Model.MultipleObjectsReturned:
+    except Schoolkid.MultipleObjectsReturned:
         print(f"Найдено более одного ученика по имени {name}")
 
 
