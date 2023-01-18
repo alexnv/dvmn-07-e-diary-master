@@ -31,6 +31,6 @@ def create_commendation(schoolkid_name, subject_name):
     schoolkid = get_schoolkid_by_name(schoolkid_name)
     subject = Subject.objects.filter(title=subject_name, year_of_study=schoolkid.year_of_study).first()
     lesson = Lesson.objects.filter(group_letter=schoolkid.group_letter, year_of_study=schoolkid.year_of_study,
-                                   subject=subject).order_by('date').first()
+                                   subject=subject).order_by('-date').first()
     commendation = Commendation.objects.create(teacher=lesson.teacher, subject=lesson.subject, schoolkid=schoolkid,
                                                created=lesson.date, text=random.choice(PRAISES_LIST))
